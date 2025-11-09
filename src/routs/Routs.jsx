@@ -4,15 +4,18 @@ import Root from '../layouts/Root';
 import Home from '../pages/Home/Home';
 import Register from '../pages/Auth/Register.jsx';
 import Login from '../pages/Auth/Login.jsx';
-
+import AllArtworks from '../pages/AllArtworks/AllArtworks.jsx';
+import ArtworkDetails from '../components/ArtworkDetails.jsx';
+import PrivateRouts from './PrivateRouts.jsx';
+import AddArtWorks from '../pages/AddArtWorks.jsx/AddArtWorks.jsx';
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        children:[
+        children: [
             {
-                index : true,
+                index: true,
                 element: <Home></Home>
             },
             {
@@ -22,8 +25,20 @@ export const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/all-artworks',
+                element: <PrivateRouts><AllArtworks></AllArtworks></PrivateRouts>
+            },
+            {
+                path: '/art-details/:id',
+                element: <PrivateRouts><ArtworkDetails></ArtworkDetails></PrivateRouts>
+            },
+            {
+                path: '/add-artworks',
+                element: <AddArtWorks></AddArtWorks>
             }
         ]
     },
-    
+
 ]);
