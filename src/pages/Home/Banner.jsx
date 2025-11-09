@@ -27,6 +27,7 @@ const Banner = () => {
       showThumbnails={false}
       showFullscreenButton={false}
       showPlayButton={false}
+      showNav={false} 
       autoPlay={true} 
       infinite={true}
       slideInterval={3000}
