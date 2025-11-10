@@ -11,7 +11,6 @@ const Favorites = () => {
     const [art, setArt] = useState([]);
     console.log(user)
     useEffect(() => {
-        if (!user?.email) return;
         axiosInstance.get(`/favorites-list?email=${user?.email}`)
             .then(res => {
                 console.log(res.data.result)

@@ -9,6 +9,7 @@ import ArtworkDetails from '../components/ArtworkDetails.jsx';
 import PrivateRouts from './PrivateRouts.jsx';
 import AddArtWorks from '../pages/AddArtWorks.jsx/AddArtWorks.jsx';
 import Favorites from '../pages/Favorites/Favorites.jsx';
+import Gallery from '../pages/Gallery/Gallery.jsx';
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,11 @@ export const router = createBrowserRouter([
             {
                 path: '/favorites',
                 element: <Favorites></Favorites>
+            },
+            {
+                path: '/my-gallary',
+                element: <PrivateRouts><Gallery></Gallery></PrivateRouts>
+
             }
         ]   
     },

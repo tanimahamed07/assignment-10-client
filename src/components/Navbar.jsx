@@ -33,7 +33,7 @@ const Navbar = () => {
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/all-artworks'>Explore Artworks</NavLink></li>
                             <li><NavLink to='/add-artworks'>Add Artworks</NavLink></li>
-                            <li><NavLink to='/'>My Gallery</NavLink></li>
+                            <li><NavLink to='/my-gallary'>My Gallery</NavLink></li>
                             <li><NavLink to='/favorites'>My Favorites</NavLink></li>
                         </ul>
                     </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
                         <li className=''><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/all-artworks'>Explore Artworks</NavLink></li>
                         <li><NavLink to='/add-artworks'>Add Artworks</NavLink></li>
-                        <li><NavLink to='/'>My Gallery</NavLink></li>
+                        <li><NavLink to='/my-gallary'>My Gallery</NavLink></li>
                         <li><NavLink to='/favorites'>My Favorites</NavLink></li>
                     </ul>
                 </div>
