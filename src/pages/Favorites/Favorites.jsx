@@ -18,13 +18,22 @@ const Favorites = () => {
                 setArt(res.data.result)
             })
     }, [user])
+    const handleUnfavorite = (id) => {
+        console.log(id)
+        axiosInstance.delete(`/unFevorites?id=${id}`)
+            .then(res => {
+                if (res.data.success) {
+                    setArt(prev => prev.filter(a => a._id !== id));
+                }
+            })
+    }
     return (
-       <section className='container mx-auto p-4 space-y-12'>
-         <h2 className="text-3xl font-bold mb-6 text-center">Your Favorite Artworks</h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {art.map(art => <FavoritesCard art={art}></FavoritesCard>)}
-        </div>
-       </section>
+        <section className='container mx-auto p-4 space-y-12'>
+            <h2 className="text-3xl font-bold mb-6 text-center">Your Favorite Artworks</h2>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+                {art.map(art => <FavoritesCard art={art} handleUnfavorite={handleUnfavorite}></FavoritesCard>)}
+            </div>
+        </section>
     );
 };
 
