@@ -31,9 +31,8 @@ const Favorites = () => {
     return <Loader></Loader>
   }
   return (
-    <section className="container mx-auto p-4 space-y-12">
+    <section className="min-h-[calc(100vh-441px)] container mx-auto p-4 space-y-12">
       <h2 className="text-3xl font-bold mb-6 text-center">Your Favorite Artworks</h2>
-
       {art.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">
           You haven’t added any favorite artworks yet

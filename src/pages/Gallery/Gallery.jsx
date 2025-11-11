@@ -18,12 +18,11 @@ const Gallery = () => {
             .then(res => {
                 setArts(res.data?.result);
                 setLoading(false)
-
             })
             .catch(err => console.error(err));
     }, [user, axiosSecure]);
-    const handleDelete = (id) => {
 
+    const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -46,19 +45,20 @@ const Gallery = () => {
             }
         });
     }
+
     if (loading) {
-        return <Loader></Loader>
+        return <Loader />
     }
+
     return (
-        <section className="container mx-auto p-4 space-y-12 ">
+        <section className="container mx-auto p-4 space-y-12 min-h-[calc(100vh-441px)] flex flex-col justify-center">
             <h2 className="text-3xl font-bold mb-6 text-center">My Gallery</h2>
 
             {arts.length === 0 ? (
                 <p className="text-center text-gray-500 text-lg">
                     You haven’t added any artworks yet 🎨
                 </p>
-            )
-             : (
+            ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {arts.map((art) => (
                         <GalleryCard key={art._id} art={art} handleDelete={handleDelete} />
