@@ -3,14 +3,15 @@ import { AuthContext } from '../../context/AuthContext';
 import { useAxios } from '../../hook/useAxios';
 import { useNavigate, useParams } from 'react-router';
 import useAxiosSecure from '../../hook/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 const Update = () => {
     const navigate = useNavigate()
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
     const axiosSecure = useAxiosSecure();
     const [art, setArts] = useState([]);
-    console.log(art)
+    // console.log(art)
     useEffect(() => {
         axiosSecure.get(`/update/${id}`)
             .then(res => {
@@ -22,15 +23,14 @@ const Update = () => {
 
     const updateArtwork = (e) => {
         e.preventDefault();
-        const form = e.target;
-        const imageUrl = form.imageUrl.value;
-        const title = form.title.value;
-        const category = form.category.value;
-        const medium = form.medium.value;
-        const description = form.description.value;
-        const dimensions = form.dimensions.value;
-        const price = form.price.value;
-        const visibility = Boolean(form.visibility.value);
+        const imageUrl = e.target.imageUrl.value;
+        const title = e.target.title.value;
+        const category = e.target.category.value;
+        const medium = e.target.medium.value;
+        const description = e.target.description.value;
+        const dimensions = e.target.dimensions.value;
+        const price = e.target.price.value;
+        const visibility = e.target.visibility.value === "true"
 
         const updatedArtWork = {
             category,
@@ -42,13 +42,15 @@ const Update = () => {
             title,
             visibility
         }
+        console.log(updatedArtWork)
+        console.log(updateArtwork)
         axiosSecure.patch(`/update-art/${id}`, updatedArtWork)
             .then(res => {
                 console.log(res?.data?.result);
+                toast.success('Updated done')
                 setArts(res.data?.result);
                 navigate('/my-gallary')
             })
-        console.log(updatedArtWork)
     }
     return (
         <div className="flex justify-center items-center py-10">
@@ -74,7 +76,7 @@ const Update = () => {
                     <label>Price</label>
                     <input defaultValue={art.price} type="text" placeholder="Price (optional)" name="price" className="input input-bordered w-full" />
                     <label htmlFor="">Visibility</label>
-                    <select defaultValue={art.visibility} name="visibility" className="input input-bordered w-full">
+                    <select name="visibility" className="input input-bordered w-full">
                         <option value="true">Public</option>
                         <option value="false">Private</option>
                     </select>

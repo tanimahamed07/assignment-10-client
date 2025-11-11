@@ -1,11 +1,9 @@
-import React, { useRef } from 'react';
+
 import { Fade } from 'react-awesome-reveal';
 import { BiSolidLike } from 'react-icons/bi';
 import { Link } from 'react-router';
 
 const GalleryCard = ({ art, handleDelete, }) => {
-    console.log(art)
-    const updateModalRef = useRef(null)
     const handleClick = () => {
         handleDelete(art._id)
     }

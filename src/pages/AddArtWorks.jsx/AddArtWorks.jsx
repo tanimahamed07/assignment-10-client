@@ -22,7 +22,7 @@ const AddArtWorks = () => {
             description: event.target.description.value,
             dimensions: event.target.dimensions.value || '',
             price: event.target.price?.value || '',
-            visibility: Boolean(event.target.visibility.value),
+            visibility: event.target.visibility.value === "true",
             artistName: user?.displayName,
             artistEmail: user?.email,
             createdAt: new Date(),
@@ -49,7 +49,7 @@ const AddArtWorks = () => {
                 <form className="space-y-4" onSubmit={handleAddArtwork}>
                     <input type="text" placeholder="Image URL" name="imageUrl" className="input input-bordered w-full" required />
                     <input type="text" placeholder="Title" name="title" className="input input-bordered w-full" required />
-                     <select name="category" className="input input-bordered w-full" defaultValue="Watercolor">
+                    <select name="category" className="input input-bordered w-full" defaultValue="Watercolor">
                         <option value="Watercolor">Watercolor</option>
                         <option value="Acrylic">Acrylic</option>
                         <option value="Oil Painting">Oil Painting</option>

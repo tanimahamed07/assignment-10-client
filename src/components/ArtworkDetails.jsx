@@ -76,7 +76,7 @@ const ArtworkDetails = () => {
                     </p>
                     <p className="text-lg"><strong>Medium:</strong> {details?.medium}</p>
                     <p className="text-lg"><strong>Dimensions:</strong> {details?.dimensions}</p>
-                    <p className="text-lg"><strong>Price:</strong> {details?.price} || 0</p>
+                    <p className="text-lg"><strong>Price:</strong> {details?.price || 0} </p>
                     <p className="text-lg text-gray-700">{details?.description}</p>
                     <div className="flex gap-4 items-center mt-4">
                         <button onClick={handleLikes}
