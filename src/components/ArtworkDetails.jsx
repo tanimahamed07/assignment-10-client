@@ -7,17 +7,21 @@ import { AuthContext } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../hook/useAxiosSecure';
 import { useAxios } from '../hook/useAxios';
+import Loader from './Loader';
 
 const ArtworkDetails = () => {
     const { user } = use(AuthContext);
     const axiosSecure = useAxiosSecure()
     const axiosInstance = useAxios();
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
     const [details, setDetails] = useState(null)
     const [allArtByArtist, setAllArtByArtist] = useState([])
     useEffect(() => {
+        setLoading(true)
         axiosSecure.get(`/art-details/${id}`)
             .then(res => {
+                setLoading(false)
                 setDetails(res.data.result)
                 setAllArtByArtist(res.data.allArtByArtist)
             })
@@ -54,8 +58,11 @@ const ArtworkDetails = () => {
                 }
             })
     }
+    if(loading){
+        return <Loader></Loader>
+    }
     return (
-        <div className="max-w-conteiner mx-auto p-8">
+        <div className="container mx-auto p-4">
             <div className="flex flex-col lg:flex-row gap-12 ">
                 <div className="lg:w-1/2 w-full">
                     <img
@@ -64,7 +71,7 @@ const ArtworkDetails = () => {
                         className="rounded-lg shadow-lg w-full h-auto object-cover lg:max-h-[600px] border-2 border-gray-500"
                     />
                 </div>
-                <div className="lg:w-1/2 w-full flex flex-col gap-6">
+                <div className="lg:w-1/2 w-full flex flex-col gap-1">
                     <h1 className="text-4xl lg:text-5xl font-bold">{details?.title}</h1>
                     <p className="text-lg lg:text-xl text-gray-600">
                         by <span className="font-medium">{details?.artistName}</span>
@@ -75,7 +82,6 @@ const ArtworkDetails = () => {
                     <p className="text-lg text-gray-700">{details?.description}</p>
                     <div className="flex gap-4 items-center mt-4">
                         <button onClick={handleLikes}
-
                             className="btn btn-outline border-2 border-primary px-6 py-3 text-lg"
                         >
                             <span>{details?.likes}</span>  <BiSolidLike size={24} className="text-blue-500" />

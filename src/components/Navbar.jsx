@@ -34,7 +34,7 @@ const Navbar = () => {
         return <Loader></Loader>
     }
     return (
-        <div className= 'px-4 md:px-10 border-b-2 border-gray-500 shadow-xl'>
+        <div className= 'px-4 md:px-10'>
             <div className=" navbar bg-base-100 " >
                 <div className=" navbar-start">
                     <div className="dropdown">
