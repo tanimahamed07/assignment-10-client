@@ -1,6 +1,5 @@
-import React, { use, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { useAxios } from '../../hook/useAxios';
 import { useNavigate, useParams } from 'react-router';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import toast from 'react-hot-toast';

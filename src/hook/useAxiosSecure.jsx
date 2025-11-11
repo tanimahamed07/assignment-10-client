@@ -3,7 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://artify-server-ivory.vercel.app"
 })
 const useAxiosSecure = () => {
     const { user } = use(AuthContext);
