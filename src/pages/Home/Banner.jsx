@@ -1,6 +1,6 @@
-import React from 'react';
-import bannerPng from '../../assets/banner.png'
-import { Fade } from 'react-awesome-reveal';
+import React from "react";
+import bannerPng from "../../assets/banner.png";
+import { Fade } from "react-awesome-reveal";
 const Banner = () => {
   return (
     <div className="bg-base-200 w-full overflow-x-hidden py-10">
@@ -29,14 +29,14 @@ const Banner = () => {
             </Fade>
             <Fade direction="up" triggerOnce>
               <p className="text-gray-500 max-w-md mx-auto lg:mx-0">
-                The exhibition is made possible by the Laurn & C. Arnoled Douglas Foundation
+                The exhibition is made possible by the Laurn & C. Arnoled
+                Douglas Foundation
               </p>
             </Fade>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
