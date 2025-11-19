@@ -21,9 +21,9 @@ All titles fit the vibe of an online gallery, artist community, and modern UI co
 
 
 ## Live Preview & Repositories
-🚀 Live Site: http://localhost:5174/
-💻 Client Repo: https://github.com/tanimahamed07/assignment-10-client
-🛠️ Server Repo: 
+- 🚀 Live Site: http://localhost:5174/
+- 💻 Client Repo: https://github.com/tanimahamed07/assignment-10-client
+- 🛠️ Server Repo: https://github.com/tanimahamed07/assignment-10-server
 
 
 ## Author
