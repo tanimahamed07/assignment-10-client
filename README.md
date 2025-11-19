@@ -19,6 +19,15 @@ All titles fit the vibe of an online gallery, artist community, and modern UI co
 
 **Server:** Node.js, Express.js, MongoDB, CORS 
 
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
+    
 
 ## Live Preview & Repositories
 - 🚀 Live Site: https://cute-tarsier-057813.netlify.app/
