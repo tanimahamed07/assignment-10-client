@@ -21,7 +21,7 @@ All titles fit the vibe of an online gallery, artist community, and modern UI co
 
 
 ## Live Preview & Repositories
-- 🚀 Live Site: http://localhost:5174/
+- 🚀 Live Site: https://cute-tarsier-057813.netlify.app/
 - 💻 Client Repo: https://github.com/tanimahamed07/assignment-10-client
 - 🛠️ Server Repo: https://github.com/tanimahamed07/assignment-10-server
 
