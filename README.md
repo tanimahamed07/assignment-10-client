@@ -15,7 +15,7 @@ All titles fit the vibe of an online gallery, artist community, and modern UI co
 
 ## Tech Stack
 
-**Client:** React, Tailwind CSS, DaisyUI, Firebase Authentication
+**Client:** React, Tailwind CSS, DaisyUI, React, Firebase Authentication,
 
 **Server:** Node.js, Express.js, MongoDB, CORS 
 
