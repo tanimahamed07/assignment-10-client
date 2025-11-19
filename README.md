@@ -24,8 +24,9 @@ All titles fit the vibe of an online gallery, artist community, and modern UI co
 Install my-project with npm
 
 ```bash
-  npm install https://github.com/tanimahamed07/assignment-10-client.git
+  git clone https://github.com/tanimahamed07/assignment-10-client.git
   cd my-project
+  npm install
 ```
     
 
