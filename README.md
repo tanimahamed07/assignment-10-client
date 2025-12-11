@@ -23,12 +23,9 @@ Artify is an online platform for artists to showcase their artwork, explore othe
 - **Authentication:** Firebase Auth (Email/Password + Google OAuth)  
 - **Hosting:** Netlify (Client-side)  
 
-## Screenshots
-
-*(Add 2-3 screenshots of your homepage, artwork details page, and add artwork page here)*  
 
 ## Installation & Running Locally
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/artify-client.git
+   git clone https://github.com/tanimahamed07/Artify-Client.git
