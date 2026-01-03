@@ -59,7 +59,7 @@ const Gallery = () => {
                     You haven’t added any artworks yet 🎨
                 </p>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {arts.map((art) => (
                         <GalleryCard key={art._id} art={art} handleDelete={handleDelete} />
                     ))}

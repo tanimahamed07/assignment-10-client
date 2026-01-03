@@ -88,7 +88,6 @@ const TopArtist = () => {
                   </div>
 
                   {/* Stats & Action */}
-                  {/* Stats & Action */}
                   <div className="mt-8 flex items-center justify-between pt-5 border-t border-dashed border-base-300">
                     <div className="flex flex-col">
                       <span className="text-2xl font-black tracking-tighter leading-none">

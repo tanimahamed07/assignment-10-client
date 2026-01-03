@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router";
 import {
   HiHome,
@@ -9,6 +9,9 @@ import {
 } from "react-icons/hi2";
 
 const Dashboard = () => {
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const theme = localStorage.getItem("theme") || "light";
+
   const linkStyle = ({ isActive }) =>
     `flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all
      ${
@@ -17,10 +20,15 @@ const Dashboard = () => {
          : "text-neutral/70 hover:bg-base-200"
      }`;
 
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   return (
-    <div className="min-h-screen bg-base-100 flex">
+    <div className="min-h-screen  flex">
       {/* Sidebar */}
-      <aside className="w-72 hidden lg:flex flex-col border-r border-base-200 bg-base-100 relative">
+      <aside className="w-72 hidden lg:flex flex-col border-r  relative">
         {/* Glow */}
         <div className="absolute top-0 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
 
@@ -71,37 +79,11 @@ const Dashboard = () => {
             Dashboard Overview
           </h1>
 
-          <div className="text-sm text-neutral/60">
-            Welcome back 👋
-          </div>
+          <div className="text-sm text-neutral/60">Welcome back 👋</div>
         </header>
 
         {/* Page Content */}
         <main className="p-6 lg:p-10">
-          {/* Overview Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {[
-              { title: "Total Artworks", value: "12" },
-              { title: "Total Likes", value: "248" },
-              { title: "Favorites", value: "7" },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="relative bg-base-100 border border-base-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all"
-              >
-                <div className="absolute -inset-1 border border-primary/20 rounded-2xl -rotate-1"></div>
-                <div className="relative z-10">
-                  <p className="text-xs uppercase tracking-widest text-neutral/50 mb-2">
-                    {item.title}
-                  </p>
-                  <h3 className="text-3xl font-black tracking-tighter">
-                    {item.value}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* Nested Routes */}
           <div className="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-sm">
             <Outlet />

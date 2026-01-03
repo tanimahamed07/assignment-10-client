@@ -13,6 +13,8 @@ import Gallery from "../pages/Gallery/Gallery.jsx";
 import Update from "../pages/Gallery/Update.jsx";
 import Error from "../components/Error.jsx";
 import Dashboard from "../layouts/Dashboard.jsx";
+import Overview from "../pages/Dashboard/Overview.jsx";
+import About from "../pages/About/About.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/all-artworks",
         element: <AllArtworks></AllArtworks>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/art-details/:id",
@@ -77,7 +83,22 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard></Dashboard>,
+    children: [
+      {
+        index: true,
+        element: <Overview></Overview>,
+      },
+      {
+        path: "add-artwork",
+        element: (
+          <PrivateRouts>
+            <AddArtWorks />
+          </PrivateRouts>
+        ),
+      },
+    ],
   },
+
   {
     path: "*",
     element: <Error />,
