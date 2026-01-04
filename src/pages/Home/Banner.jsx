@@ -1,6 +1,7 @@
 import React from "react";
 import bannerPng from "../../assets/banner.png";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router";
 const Banner = () => {
   return (
     <div className="relative bg-base-100 w-full overflow-hidden py-8 lg:py-12 border-b border-base-200">
@@ -49,12 +50,9 @@ const Banner = () => {
 
             <Fade direction="up" delay={400} triggerOnce>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                <button className="btn btn-primary btn-md shadow-md hover:scale-105 transition-transform">
-                  Get Tickets
-                </button>
-                <button className="btn btn-outline btn-secondary btn-md">
-                  Explore Gallery
-                </button>
+                <Link to='/all-artworks' className="btn btn-primary btn-md shadow-md hover:scale-105 transition-transform">
+                 Explore Gallery
+                </Link>
               </div>
             </Fade>
           </div>

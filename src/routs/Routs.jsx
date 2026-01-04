@@ -44,11 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/art-details/:id",
-        element: (
-          <PrivateRouts>
-            <ArtworkDetails></ArtworkDetails>
-          </PrivateRouts>
-        ),
+        element: <ArtworkDetails></ArtworkDetails>,
       },
       {
         path: "/add-artworks",
@@ -82,7 +78,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRouts><Dashboard /></PrivateRouts>,
     children: [
       {
         index: true,
@@ -98,7 +94,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/update/:id",
-        element: <Update></Update>,
+        element: (
+          <PrivateRouts>
+            <Update></Update>
+          </PrivateRouts>
+        ),
       },
       {
         path: "/dashboard/my-gallery",

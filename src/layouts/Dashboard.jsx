@@ -1,17 +1,20 @@
 import React, { useEffect, useContext } from "react";
-import { NavLink, Outlet, Link } from "react-router";
+import { NavLink, Outlet, Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import {
   HiHome,
   HiPlusCircle,
   HiPhoto,
   HiHeart,
-  HiUser,
   HiBars3BottomLeft,
+  HiOutlineArrowLeftOnRectangle,
 } from "react-icons/hi2";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
+  
+  const { user, signOutUser } = useContext(AuthContext); // Get logout from AuthContext
+  const navigate = useNavigate();
   const theme = localStorage.getItem("theme") || "light";
 
   useEffect(() => {
@@ -19,7 +22,6 @@ const Dashboard = () => {
     html.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // Navbar এর সাথে মিল রেখে স্টাইল
   const linkStyle = ({ isActive }) =>
     `relative flex items-center gap-3 px-6 py-3.5 rounded-xl font-bold transition-all duration-300 group
      ${
@@ -28,15 +30,25 @@ const Dashboard = () => {
          : "text-base-content/70 hover:bg-primary/5 hover:text-primary"
      }`;
 
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        toast.success("SignOut Successful");
+        navigate("/");
+      })
+      .catch(() => toast.error("SignOut Failed!"));
+  };
+
+
   return (
     <div className="min-h-screen bg-base-100 flex overflow-hidden">
       {/* Sidebar - Desktop */}
       <aside className="w-80 hidden lg:flex flex-col border-r border-base-200 bg-base-100 relative z-30">
-        {/* Background Glows (Banner style) */}
+        {/* Background Glows */}
         <div className="absolute top-0 -left-20 w-48 h-48 bg-primary/5 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
         <div className="absolute bottom-10 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
 
-        {/* Sidebar Header (Navbar Logo style) */}
+        {/* Sidebar Header */}
         <div className="px-8 py-8">
           <Link to="/" className="flex items-center gap-2 group transition-transform active:scale-95">
             <div className="bg-primary/10 p-1.5 rounded-xl group-hover:bg-primary/20 transition-colors">
@@ -71,6 +83,15 @@ const Dashboard = () => {
           </NavLink>
 
           <div className="divider opacity-50 px-4"></div>
+
+          {/* Logout Button */}
+          <button
+            onClick={handleSignOut}
+            className="flex items-center gap-3 px-6 py-3.5 rounded-xl font-bold text-red-600 hover:bg-red-50 transition-all duration-300 w-full"
+          >
+            <HiOutlineArrowLeftOnRectangle className="text-xl" />
+            <span className="tracking-tight uppercase text-sm">Logout</span>
+          </button>
         </nav>
 
         {/* Sidebar Bottom User Info */}
@@ -115,16 +136,10 @@ const Dashboard = () => {
 
         {/* Page Content Area */}
         <main className="flex-1 overflow-y-auto p-6 lg:p-10 bg-base-200/30">
-          {/* Main Container with Decorative Border (Banner style) */}
           <div className="relative max-w-7xl mx-auto">
-             {/* Decorative Background Glow for Content */}
              <div className="absolute -top-10 -right-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
-             
-             {/* Card Container */}
              <div className="relative z-10 bg-base-100 border border-base-200 rounded-[2.5rem] p-8 lg:p-12 shadow-sm min-h-[calc(100vh-200px)]">
-                {/* Decorative Frame like CommunityHighlights */}
                 <div className="absolute -inset-1.5 border border-primary/10 rounded-[2.6rem] -z-10 pointer-events-none"></div>
-                
                 <Outlet />
              </div>
           </div>
