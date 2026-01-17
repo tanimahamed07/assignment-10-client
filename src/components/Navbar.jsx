@@ -75,14 +75,34 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-base-100 rounded-2xl w-64 border border-base-200 space-y-2"
             >
-              <li><NavLink onClick={closeDropdown} to="/">Home</NavLink></li>
-              <li><NavLink onClick={closeDropdown} to="/all-artworks">Explore Artworks</NavLink></li>
-              <li><NavLink onClick={closeDropdown} to="/about">About</NavLink></li>
-              <li><NavLink onClick={closeDropdown} to="/contract">Contract Us</NavLink></li>
+              <li>
+                <NavLink onClick={closeDropdown} to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={closeDropdown} to="/all-artworks">
+                  Explore Artworks
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={closeDropdown} to="/about">
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={closeDropdown} to="/contract">
+                  Contract Us
+                </NavLink>
+              </li>
               {user && (
                 <>
                   <div className="divider my-0"></div>
-                  <li><NavLink onClick={closeDropdown} to="/dashboard">Dashboard</NavLink></li>
+                  <li>
+                    <NavLink onClick={closeDropdown} to="/dashboard">
+                      Dashboard
+                    </NavLink>
+                  </li>
                 </>
               )}
             </ul>
@@ -108,12 +128,32 @@ const Navbar = () => {
         {/* CENTER: Navigation Links (Desktop) */}
         <div className="navbar-center hidden lg:flex">
           <ul className="flex items-center gap-4">
-            <li><NavLink className={navLinkStyles} to="/">Home</NavLink></li>
-            <li><NavLink className={navLinkStyles} to="/all-artworks">Explore</NavLink></li>
-            <li><NavLink className={navLinkStyles} to="/about">About</NavLink></li>
-            <li><NavLink className={navLinkStyles} to="/contract">Contract Us</NavLink></li>
+            <li>
+              <NavLink className={navLinkStyles} to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkStyles} to="/all-artworks">
+                Explore
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkStyles} to="/about">
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={navLinkStyles} to="/contract">
+                Contract Us
+              </NavLink>
+            </li>
             {user && (
-              <li><NavLink className={navLinkStyles} to="/dashboard">Dashboard</NavLink></li>
+              <li>
+                <NavLink className={navLinkStyles} to="/dashboard">
+                  Dashboard
+                </NavLink>
+              </li>
             )}
           </ul>
         </div>
@@ -128,10 +168,18 @@ const Navbar = () => {
                 checked={theme === "dark"}
                 onChange={(e) => handleTheme(e.target.checked)}
               />
-              <svg className="swap-on fill-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                className="swap-on fill-primary w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path d="M12,7a5,5,0,1,0,5,5A5,5,0,0,0,12,7Z" />
               </svg>
-              <svg className="swap-off fill-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg
+                className="swap-off fill-primary w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Z" />
               </svg>
             </label>
@@ -157,10 +205,18 @@ const Navbar = () => {
                 className="mt-2 z-[1] p-3 shadow-2xl menu menu-sm dropdown-content bg-base-100 rounded-2xl w-56 border border-base-200 animate-in fade-in zoom-in duration-200"
               >
                 <div className="px-4 py-3 mb-2 bg-primary/5 rounded-xl">
-                  <p className="text-[10px] uppercase font-bold text-primary tracking-widest mb-1">Signed in as</p>
-                  <p className="font-bold truncate text-base-content">{user.displayName || "Artist"}</p>
+                  <p className="text-[10px] uppercase font-bold text-primary tracking-widest mb-1">
+                    Signed in as
+                  </p>
+                  <p className="font-bold truncate text-base-content">
+                    {user.displayName || "Artist"}
+                  </p>
                 </div>
-                <li><Link onClick={closeDropdown} to="/dashboard">Dashboard</Link></li>
+                <li>
+                  <Link onClick={closeDropdown} to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
                 <div className="divider my-1"></div>
                 <li>
                   <button
@@ -174,7 +230,12 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <Link to="/login" className="hidden sm:flex btn btn-ghost btn-sm rounded-full">Login</Link>
+              <Link
+                to="/login"
+                className="hidden sm:flex btn btn-ghost btn-sm rounded-full"
+              >
+                Login
+              </Link>
               <Link
                 to="/register"
                 className="btn btn-primary btn-sm md:btn-md rounded-full px-5 shadow-lg shadow-primary/25 transition-all duration-300"

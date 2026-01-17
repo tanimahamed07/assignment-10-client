@@ -17,10 +17,10 @@ import toast from "react-hot-toast";
 const Dashboard = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const theme = localStorage.getItem("theme") || "light";
   
-  // মোবাইল মেনুর জন্য State
-  const [isOpen, setIsOpen] = useState(false);
+
 
   useEffect(() => {
     const html = document.querySelector("html");
